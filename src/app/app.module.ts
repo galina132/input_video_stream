@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { VideoJSComponent } from './video-js/video-js.component';
 import { MatToolbarModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,9 +18,13 @@ import { MatToolbarModule } from '@angular/material';
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    VideoJSComponent
+  ]
 })
 export class AppModule { }

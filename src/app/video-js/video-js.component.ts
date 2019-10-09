@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import videojs from 'video.js';
 
 @Component({
@@ -6,8 +6,9 @@ import videojs from 'video.js';
   templateUrl: './video-js.component.html',
   styleUrls: ['./video-js.component.scss']
 })
-export class VideoJSComponent implements AfterViewInit {
+export class VideoJSComponent implements AfterViewInit, OnDestroy {
   public vjs: videojs.Player;
+
   @Input() urlVideo: string;
   @Input() urlPoster: string;
 
@@ -24,6 +25,10 @@ export class VideoJSComponent implements AfterViewInit {
     };
     this.vjs = videojs('my-player', options);
 
+  }
+  ngOnDestroy() {
+    let player = videojs('my-player');
+    player.dispose();
   }
 
 }
